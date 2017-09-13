@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HanLP.csharp.collection;
+using HanLP.csharp.utility;
+
 namespace HanLP.csharp.corpus.dictionary
 {
     /// <summary>
@@ -12,6 +14,19 @@ namespace HanLP.csharp.corpus.dictionary
     public class SimpleItem
     {
         public IDictionary<string, int> labelMap = new SortedDictionary<string, int>(StrComparer.Default);
+
+        public Tuple<string, int>[] LabelMapEntries
+        {
+            get
+            {
+                var tuples = new Tuple<string, int>[labelMap.Count];
+                int i = 0;
+                foreach (var p in labelMap)
+                    tuples[i++] = new Tuple<string, int>(p.Key, p.Value);
+
+                return tuples;
+            }
+        }
         public void AddLabel(string label)
         {
             if (labelMap.ContainsKey(label))
@@ -61,6 +76,10 @@ namespace HanLP.csharp.corpus.dictionary
             return item;
         }
 
+        /// <summary>
+        /// 将要添加的词条的标签添加
+        /// </summary>
+        /// <param name="other"></param>
         public void Combine(SimpleItem other)
         {
             foreach(var p in other.labelMap)
@@ -94,7 +113,22 @@ namespace HanLP.csharp.corpus.dictionary
             this.key = key;
         }
 
-        public override string ToString() => key;
+        //public override string ToString() => key;
+        /// <summary>
+        /// 重写这个函数，因为需要将Item序列化到文件
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            var array = LabelMapEntries;
+            ArrayHelper.Sort(array, (x, y) => x.Item2 >= y.Item2);
+            foreach(var e in array)
+            {
+                sb.Append(' ').Append(e.Item1).Append(' ').Append(e.Item2);
+            }
+            return sb.ToString();
+        }
 
         public static Item Create(string param)
         {

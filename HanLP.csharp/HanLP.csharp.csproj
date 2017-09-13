@@ -63,6 +63,11 @@
     <Compile Include="collection\trie\ITrie.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="corpus\dependency\CoNLL.cs" />
+    <Compile Include="corpus\dependency\CoNLLUtil.cs" />
+    <Compile Include="corpus\dependency\MaxEntDependencyModelMaker.cs" />
+    <Compile Include="corpus\dependency\WordNatureWeightModelMaker.cs" />
+    <Compile Include="corpus\dictionary\DictionaryMaker.cs" />
     <Compile Include="corpus\dictionary\SimpleDictionary.cs" />
     <Compile Include="corpus\dictionary\StringDictionary.cs" />
     <Compile Include="corpus\dictionary\TagFreqItem.cs" />
@@ -77,6 +82,10 @@
     <Compile Include="corpus\tag\NR.cs" />
     <Compile Include="corpus\tag\NS.cs" />
     <Compile Include="corpus\tag\NT.cs" />
+    <Compile Include="dependency\BaseDependencyParser.cs" />
+    <Compile Include="dependency\CRFDependencyParser.cs" />
+    <Compile Include="dependency\DependencyUtil.cs" />
+    <Compile Include="dependency\Graph.cs" />
     <Compile Include="dictionary\BaseSearcher.cs" />
     <Compile Include="dictionary\common\CommonDictionary.cs" />
     <Compile Include="dictionary\common\CommonStringDictionary.cs" />
@@ -105,6 +114,8 @@
     <Compile Include="dictionary\ts\TraditionalChineseDictionary.cs" />
     <Compile Include="HANLP.cs" />
     <Compile Include="interfaces\ITextHit.cs" />
+    <Compile Include="model\bigram\BigramDependencyModel.cs" />
+    <Compile Include="model\CRF\CRFDependencyModel.cs" />
     <Compile Include="model\CRF\CRFModel.cs" />
     <Compile Include="model\CRF\CRFSegmentModel.cs" />
     <Compile Include="model\CRF\Feature.cs" />

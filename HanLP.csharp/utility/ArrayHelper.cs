@@ -58,6 +58,13 @@ namespace HanLP.csharp.utility
             return -low - 1; // 没有找到目标对象，如果要将目标按顺序插入到数组容器中，则插入位置应该为 low，为了与上面返回-1 一致，作 -low-1 处理
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="array"></param>
+        /// <param name="dest_hc">目标的哈希值</param>
+        /// <returns></returns>
         public static int BinarySearchByHashcode<T>(T[] array, int dest_hc)
         {
             if (array.Length <= 0) return -1;   // 没有找到目标对象，如果要将目标按顺序插入到数组容器中，则插入位置应该为 0
@@ -78,6 +85,33 @@ namespace HanLP.csharp.utility
                     return mid;
             }
             return -low - 1;    // 没有找到目标对象，如果要将目标按顺序插入到数组容器中，则插入位置应该为 low，为了与上面返回-1 一致，作 -low-1 处理
+        }
+
+        public static void Sort<T>(T[] array, Func<T, T, bool> comparator) => Sort(array, 0, array.Length - 1, comparator);
+
+        public static void Sort<T>(T[] array, int left, int right, Func<T, T, bool> comparator)
+        {
+            if(left < right)
+            {
+                var middle = Partition<T>(array, left, right, comparator);
+                Sort(array, left, middle - 1, comparator);
+                Sort(array, middle + 1, right, comparator);
+            }
+        }
+        private static int Partition<T>(T[] array, int start, int end, Func<T, T, bool> comparator)
+        {
+            var pivot = array[start];
+            while(start < end)
+            {
+                while (start < end && comparator(pivot, array[end])) end--;
+                if (start < end)
+                    array[start++] = array[end];
+                while (start < end && comparator(array[start], pivot)) start++;
+                if (start < end)
+                    array[end--] = array[start];
+            }
+            array[start] = pivot;
+            return start;
         }
     }
 }

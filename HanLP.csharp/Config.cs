@@ -119,6 +119,12 @@ namespace HanLP.csharp
         /// CRF依存模型路径
         /// </summary>
         public static readonly string CRF_Dependency_Model_Path = DataRootDir + "model/dependency/CRFDependencyModelMini.txt";
+
+        /// <summary>
+        /// 依存模型，词性保存路径
+        /// </summary>
+        public static readonly string Word_Nat_Weight_Model_Path = DataRootDir + "model/dependency/pos-thu.txt";
+
         /// <summary>
         /// 是否显示词性
         /// </summary>
