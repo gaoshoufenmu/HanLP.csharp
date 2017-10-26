@@ -48,7 +48,7 @@ namespace HanLP.csharp.dictionary.common
             var error = _trie.Build(keys, valueArr);
             if(error != 0)              // 出错
             {
-                var map = new SortedDictionary<string, V>();
+                var map = new SortedDictionary<string, V>(StrComparer.Default);
                 for(int i = 0; i < valueArr.Length; i++)
                 {
                     map[keys[i]] = valueArr[i];

@@ -82,7 +82,7 @@ namespace HanLP.csharp.seg.CRF
                 for(int i = 0; i < list.Count; i++)
                 {
                     var term = list[i];
-                    if (term.nature != Nature.none)
+                    if (term.nature == Nature.none)
                         term.nature = vertices[i + 1].GuessNature();            // vertices[i+1] -> 附加了辅助起始节点
                 }
             }

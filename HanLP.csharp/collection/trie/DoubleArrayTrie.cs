@@ -484,7 +484,7 @@ namespace HanLP.csharp.collection.trie
         public bool Set(string key, V value)
         {
             int index = ExactMatch(key);
-            if(index > 0)
+            if(index >= 0)
             {
                 _v[index] = value;
                 return true;

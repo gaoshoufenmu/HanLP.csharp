@@ -65,6 +65,7 @@ namespace HanLP.Test.csharp
         }
         #endregion
 
+        #region NER
         [Test]
         public void PeopleNameRecognition()
         {
@@ -114,5 +115,38 @@ namespace HanLP.Test.csharp
                 Assert.AreEqual(segTerms[i], sb.ToString());
             }
         }
+
+        [Test]
+        public void OrgRecognition()
+        {
+            var testcases = new[]
+            {
+                "南昌市公安局西湖分局筷子巷派出所",
+                "济南杨铭宇餐饮管理有限公司是由杨先生创办的餐饮企业",
+                "我在上海林原科技有限公司兼职工作，",
+                "我经常在台川喜宴餐厅吃饭，",
+                "偶尔去开元地中海影城看电影。"
+            };
+            var expects = new[]
+            {
+                "南昌市公安局/nt, 西湖分局筷子巷派出所/nt, ",
+                "济南杨铭宇餐饮管理有限公司/nt, 是/vshi, 由/p, 杨先生/nr, 创办/v, 的/ude1, 餐饮企业/nt, ",
+                "我/rr, 在/p, 上海/ns, 林原科技有限公司/nt, 兼职/vn, 工作/vn, ，/w, ",
+                "我/rr, 经常/d, 在/p, 台川喜宴餐厅/nt, 吃饭/vi, ，/w, ",
+                "偶尔/d, 去/vf, 开元地中海影城/nt, 看/v, 电影/n, 。/w, "
+            };
+            for (int i = 0; i < testcases.Length; i++)
+            {
+                var s = testcases[i];
+                var terms = HANLP.Segment(s);
+                var sb = new StringBuilder(s.Length * 4);
+                foreach (var t in terms)
+                {
+                    sb.Append($"{t}, ");
+                }
+                Assert.AreEqual(expects[i], sb.ToString());
+            }
+        }
+        #endregion
     }
 }

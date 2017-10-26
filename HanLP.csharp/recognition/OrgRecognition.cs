@@ -42,7 +42,10 @@ namespace HanLP.csharp.recognition
                 {
                     case Nature.nrf:                        // 音译人名
                         if (vertex.attr.totalFreq <= 1000)
+                        {
                             tagList.Add(new TagFreqItem<NT>(NT.F, 1000));
+                            continue;
+                        }
                         break;
                     case Nature.ni:                         // 机构相关名称
                     case Nature.nic:
@@ -51,10 +54,10 @@ namespace HanLP.csharp.recognition
                         var tfi = new TagFreqItem<NT>(NT.K, 1000);          // 
                         tfi.AddLabel(NT.D, 1000);
                         tagList.Add(tfi);
-                        break;
+                        continue;
                     case Nature.m:
                         tagList.Add(new TagFreqItem<NT>(NT.M, 1000));
-                        break;
+                        continue;
                 }
 
                 var tagItem = OrgDictionary.dictionary.Get(vertex.word);        // 此处使用等效词，更加精准

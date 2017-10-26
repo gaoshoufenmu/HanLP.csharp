@@ -11,7 +11,7 @@ namespace HanLP.csharp.seg
         /// <summary>
         /// 是否索引分词（合理地最小分词）
         /// </summary>
-        public bool indexMode = false;
+        public bool indexMode = true;
         /// <summary>
         /// 是否识别中国人名
         /// </summary>
@@ -39,7 +39,7 @@ namespace HanLP.csharp.seg
         /// <summary>
         /// 词性标注
         /// </summary>
-        public bool natureTagging = false;
+        public bool natureTagging = true;
         /// <summary>
         /// 命名实体识别是否至少有一项被识别
         /// </summary>
@@ -47,7 +47,7 @@ namespace HanLP.csharp.seg
         /// <summary>
         /// 是否计算偏移量
         /// </summary>
-        public bool offset = false;
+        public bool offset = true;
         /// <summary>
         /// 是否识别数词和量词
         /// </summary>

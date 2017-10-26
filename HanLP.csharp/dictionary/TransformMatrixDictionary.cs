@@ -119,12 +119,12 @@ namespace HanLP.csharp.dictionary
                 for (int i = 0; i < _ordinaryMax; i++)
                     _trans_prob[i] = new double[_ordinaryMax];
 
-                for(int i = 0; i < _ordinaryMax - 1; i++)
+                for(int i = 0; i < _states.Length; i++)
                 {
                     var from = _states[i];      // from 状态
                     if (_total[from] > 0)       // from状态节点的出度（或入度）大于 0 ，防止是稀疏矩阵
                     {
-                        for (int j = 0; j < _ordinaryMax - 1; j++)
+                        for (int j = 0; j < _states.Length; j++)
                         {
                             var to = _states[j];    // to 状态
                             double freq = _matrix[from][to] + 1e-8;     // 为 0 校正， 状态from  到 状态 to 的频次

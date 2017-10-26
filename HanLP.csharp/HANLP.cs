@@ -7,6 +7,8 @@ using HanLP.csharp.dictionary.ts;
 using HanLP.csharp.dictionary.py;
 using HanLP.csharp.seg.common;
 using HanLP.csharp.tokenizer;
+using HanLP.csharp.corpus.dependency;
+
 namespace HanLP.csharp
 {
     /// <summary>
@@ -95,5 +97,10 @@ namespace HanLP.csharp
         /// <param name="text"></param>
         /// <returns></returns>
         public static List<Term> Segment(string text) => StandardTokenizer.Segment(text);
+
+        //public static CoNLLSentence ParseDependency(string sentence)
+        //{
+
+        //}
     }
 }

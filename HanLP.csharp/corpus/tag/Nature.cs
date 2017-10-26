@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * 名词 n, 时间词 t, 处所词 s, 方位词 f, 数词 m, 量词 q, 区别词 b， 代词 r， 动词 v， 形容词 a， 状态词 z， 副词 d，介词 p，
+ * 连词 c，助词 u， 语气词 y， 叹词 e， 拟声词 o， 成语 i， 习用语 l， 简称 j， 前接成分 h， 后接成分 k， 语素 g， 非语素字 x， 标点符号 w
+ * （如与下面枚举冲突，以枚举意义为准）
+ * 
+ * */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

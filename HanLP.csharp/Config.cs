@@ -126,6 +126,15 @@ namespace HanLP.csharp
         public static readonly string Word_Nat_Weight_Model_Path = DataRootDir + "model/dependency/pos-thu.txt";
 
         /// <summary>
+        /// 行政地名字典路径
+        /// </summary>
+        public static readonly string Area_Dict_Path = DataRootDir + "dictionary/place/area.txt";
+        /// <summary>
+        /// 公司名相关的高频词典
+        /// </summary>
+        public static readonly string Com_HighFreq_Dict_Path = DataRootDir + "dictionary/custom/ComHighFreq.txt";
+
+        /// <summary>
         /// 是否显示词性
         /// </summary>
         public static bool ShowTermNature = true;

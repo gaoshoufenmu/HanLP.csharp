@@ -78,6 +78,7 @@
     <Compile Include="corpus\io\ByteArray.cs" />
     <Compile Include="corpus\io\IOUtil.cs" />
     <Compile Include="corpus\model\Attribute.cs" />
+    <Compile Include="corpus\tag\NatCom.cs" />
     <Compile Include="corpus\tag\Nature.cs" />
     <Compile Include="corpus\tag\NR.cs" />
     <Compile Include="corpus\tag\NS.cs" />
@@ -86,6 +87,8 @@
     <Compile Include="dependency\CRFDependencyParser.cs" />
     <Compile Include="dependency\DependencyUtil.cs" />
     <Compile Include="dependency\Graph.cs" />
+    <Compile Include="dependency\nnparser\NNDependencyParser.cs" />
+    <Compile Include="dependency\nnparser\NNParser.cs" />
     <Compile Include="dictionary\BaseSearcher.cs" />
     <Compile Include="dictionary\common\CommonDictionary.cs" />
     <Compile Include="dictionary\common\CommonStringDictionary.cs" />
@@ -96,6 +99,9 @@
     <Compile Include="dictionary\nr\NRPattern.cs" />
     <Compile Include="dictionary\nr\NRDictionary.cs" />
     <Compile Include="dictionary\nr\TranslatedPersonDictionary.cs" />
+    <Compile Include="dictionary\ns\AreaDictionary.cs" />
+    <Compile Include="dictionary\ns\NSDictionary.cs" />
+    <Compile Include="dictionary\ns\PlaceDictionary.cs" />
     <Compile Include="dictionary\nt\NTPattern.cs" />
     <Compile Include="dictionary\nt\OrgDictionary.cs" />
     <Compile Include="dictionary\nt\NTDictionary.cs" />
@@ -112,6 +118,7 @@
     <Compile Include="dictionary\ts\BaseChineseDictionary.cs" />
     <Compile Include="dictionary\ts\SimplifiedChineseDictionary.cs" />
     <Compile Include="dictionary\ts\TraditionalChineseDictionary.cs" />
+    <Compile Include="dictionary\ComHighFreqDict.cs" />
     <Compile Include="HANLP.cs" />
     <Compile Include="interfaces\ITextHit.cs" />
     <Compile Include="model\bigram\BigramDependencyModel.cs" />
@@ -124,6 +131,8 @@
     <Compile Include="model\trigram\Probability.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="recognition\ChsNameRecognition.cs" />
+    <Compile Include="recognition\OrgAbbrRecognition.cs" />
+    <Compile Include="recognition\PlaceRecognition.cs" />
     <Compile Include="recognition\TranslatedPersonRecognition.cs" />
     <Compile Include="recognition\OrgRecognition.cs" />
     <Compile Include="seg\CharBasedGenerativeModelSegment.cs" />
@@ -133,6 +142,7 @@
     <Compile Include="seg\common\Term.cs" />
     <Compile Include="seg\common\Vertex.cs" />
     <Compile Include="seg\common\WordNet.cs" />
+    <Compile Include="seg\CRF\Com_CRFSegment.cs" />
     <Compile Include="seg\CRF\CRFSegment.cs" />
     <Compile Include="seg\DictBasedSegment.cs" />
     <Compile Include="seg\HMM\HMMSegment.cs" />

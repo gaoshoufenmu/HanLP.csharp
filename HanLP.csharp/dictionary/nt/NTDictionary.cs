@@ -69,12 +69,16 @@ namespace HanLP.csharp.dictionary.nt
             {
                 return false;
             }
+            finally
+            {
+                fs.Close();
+            }
         }
 
         private TagFreqItem<NT>[] LoadDat(string path)
         {
+            if (!File.Exists(path)) return null;
             var bytes = File.ReadAllBytes(path);
-            if (bytes == null || bytes.Length < 5) return null;
 
             int index = 0;
             int size = BitConverter.ToInt32(bytes, index);
